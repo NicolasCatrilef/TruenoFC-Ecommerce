@@ -3,7 +3,7 @@
 _Sitio Web de Trueno Futbol Club, acá se obtendrá información del club, resultados de las series semana a semana, pagos de cuotas y venta de los productos del Club_
 
 
-## Construido con 🛠️
+## En construcción con 🛠️
 
 _El sitio esta desarrllado en Reac JS_
 
