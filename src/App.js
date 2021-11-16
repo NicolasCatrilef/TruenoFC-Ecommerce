@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { NavBar } from './components/navBar/NavBar';
 
 function App() {
   return (
     <div className="App">
+        <NavBar/>
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <img src='Trueno-FC.png' alt="logo"  />
         <p>
           Club Social Deportivo Cultural <code>TRUENO FC</code>
