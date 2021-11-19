@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardWidget } from '../CartWidget.js/CardWidget';
 import './NavBar.css';
 
 
@@ -19,6 +20,7 @@ export const NavBar = () => {
 					<a href='https://www.google.com'>Contacto</a>
 				</li>
 			</ul>
+			<CardWidget className='CardWidget'/>
 		</nav>
     )
 }
