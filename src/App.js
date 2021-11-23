@@ -10,7 +10,7 @@ function App() {
     <div className="App">
         <NavBar/>
         <ItemListContainer greetings='Item 1'/>
-        <img src='Trueno-FC.png' alt="logo"  />
+        {/* <img src='Trueno-FC.png' alt="logo"  /> */}
     </div>
   );
 }

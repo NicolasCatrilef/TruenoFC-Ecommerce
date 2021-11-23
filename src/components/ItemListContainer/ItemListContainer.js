@@ -1,5 +1,7 @@
 import React from 'react'
-import { Advertisement } from 'semantic-ui-react'
+import { ItemCount } from '../ItemCount/ItemCount';
+
+
 
 import './ItemListContainer.css';
 
@@ -7,7 +9,9 @@ import './ItemListContainer.css';
 export const ItemListContainer = ({greetings}) => {
     return (
         <div className='container'>
-            <Advertisement unit='banner' test={greetings} />
+            {/* <Advertisement unit='banner' test={greetings} /> */}
+            <ItemCount stock={10}/>
+
         </div>
         
     )

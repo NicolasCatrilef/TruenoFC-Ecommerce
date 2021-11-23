@@ -5,7 +5,7 @@ import './NavBar.css';
 
 export const NavBar = () => {
     return (
-        <nav className='container'>
+        <nav className='container background-red'>
 			<ul>
 				<li>
 					<a href='https://www.lnf.cl'>Series</a>
@@ -19,8 +19,10 @@ export const NavBar = () => {
 				<li>
 					<a href='https://www.google.com'>Contacto</a>
 				</li>
+				<li>
+					<CardWidget className='CardWidget'/>
+				</li>
 			</ul>
-			<CardWidget className='CardWidget'/>
 		</nav>
     )
 }

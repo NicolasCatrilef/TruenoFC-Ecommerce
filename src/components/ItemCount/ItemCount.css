@@ -1,0 +1,20 @@
+.div {
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}
+
+.segment{
+    /* width: 100%; */
+    align-content: center;
+    margin-top: .5em;
+}
+
+.image{
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.shop{
+    margin: 1.5%;
+}
