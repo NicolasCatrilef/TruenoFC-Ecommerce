@@ -5,7 +5,7 @@ import './ItemListContainer.css';
 
 export const ItemListContainer = ({greetings}) => {
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         setTimeout(() => {

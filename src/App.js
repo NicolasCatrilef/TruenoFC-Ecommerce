@@ -1,18 +1,28 @@
 import './App.css';
 
+
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
 //Components
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+
 import { Header } from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-        {/* <Header /> */}
-        <NavBar/>
-        <ItemListContainer greetings='Item 1'/>
-        {/* <img src='Trueno-FC.png' alt="logo"  /> */}
-    </div>
+    <Router>
+      <div className="App">
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>} />
+            <Route path='/item/:id' element={<ItemDetailContainer />} />
+          </Routes>
+          {/* <Header />
+           */}
+      </div>
+    </Router>
   );
 }
 

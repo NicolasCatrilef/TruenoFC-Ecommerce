@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
 
-export const Item = ({ item }) => {
+export const ItemDetail = ({ item }) => {
     return (
         <div>
             <Card>
@@ -18,17 +17,13 @@ export const Item = ({ item }) => {
                 </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Link to={`/item/${item.id}`}>
+                    <Link to={`/`}>
                         <Button color='google plus'>
-                            Ver Detalle
+                            Volver
                         </Button>
                     </Link>
                 </Card.Content>
             </Card>
         </div>
     )
-}
-
-Item.prototype = {
-    item: PropTypes.object.isRequired
 }
