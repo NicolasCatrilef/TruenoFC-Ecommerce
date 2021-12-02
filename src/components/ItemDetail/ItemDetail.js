@@ -6,18 +6,18 @@ export const ItemDetail = ({ item }) => {
     return (
         <div>
             <Card>
-                <Image src={item.avatar_url} wrapped ui={true} />
+                <Image src={item.img} wrapped ui={true} />
                 <Card.Content>
-                <Card.Header>{item.login}</Card.Header>
+                <Card.Header>{item.name}</Card.Header>
                 <Card.Meta>
-                    <span className='date'>{item.id}</span>
+                    <span className='date'>Stock disponible: {item.stock}</span>
                 </Card.Meta>
                 <Card.Description>
-                    {item.url}
+                    {item.price}
                 </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Link to={`/`}>
+                    <Link to={`/category/${item.type}`}>
                         <Button color='google plus'>
                             Volver
                         </Button>

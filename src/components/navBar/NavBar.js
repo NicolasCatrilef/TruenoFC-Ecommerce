@@ -17,16 +17,14 @@ export const NavBar = () => {
 					</Link>
 				</li>
 				<li>
-					<a href='https://www.lnf.cl'>Series</a>
+					<Link to='/category/camiseta'>
+						<p>Camisetas</p>
+					</Link>
 				</li>
 				<li>
-					<a href='https://www.google.com'>Productos</a>
-				</li>
-				<li>
-					<a href='https://www.google.com'>Pago de Cuotas</a>
-				</li>
-				<li>
-					<a href='https://www.google.com'>Contacto</a>
+					<Link to='/category/accesorio'>
+						<p>Accesorios</p>
+					</Link>
 				</li>
 				<li>
 					<CardWidget className='CardWidget'/>
