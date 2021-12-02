@@ -7,7 +7,7 @@ export const Item = ({ item }) => {
     return (
         <div>
             <Card>
-                <Image src={item.img} wrapped ui={false} />
+                <Image src={item.img} wrapped ui={false} size='huge'/>
                 <Card.Content>
                 <Card.Header>{ item.name }</Card.Header>
                 <Card.Meta>
