@@ -14,7 +14,7 @@ _El sitio esta desarrllado en Reac JS_
 
 Se utilizo la herramienta [GitHub](https://github.com/) para el versionado. Es por esto que las versiones disponibles, se encuentran en el repositorio [https://github.com/NicolasCatrilef/TruenoFC-Ecommerce].
 
-# ### Instalación 🔧
+## Instalación 🔧
 
 _Para utilizar correctamente la aplicacion es necesario instalar las dependencias que este requiere._
 
