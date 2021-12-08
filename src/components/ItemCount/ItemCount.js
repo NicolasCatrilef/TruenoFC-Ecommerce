@@ -1,60 +1,63 @@
-import React, { useState } from 'react'
-import { Button, Icon, Image, Input, Segment } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Button, Icon, Input } from 'semantic-ui-react'
 
 import './ItemCount.css'
 
-export const ItemCount = ({stock}) => {
+export const ItemCount = ({stock, fnAddCart}) => {
 
-    const [contador, setContador] = useState(1)
+    const [cantidad, setCantidad] = useState(0)
     const [blockMinus, setBlockMinus] = useState(true)
-    const [blockAdd, setBlockAdd] = useState(stock === 0  ? false : true)
+    const [blockAdd, setBlockAdd] = useState(stock === 0  ? true : false)
     
 
-    const onMinus = () => {
-        if ( contador === 1) {
+    useEffect(() => {
+        if ( cantidad === 0) {
             setBlockAdd(false);
             setBlockMinus(true);
-        } else {
-            setBlockMinus(false);
-            setBlockAdd(false);
-            setContador( contador - 1 )
         }
+
+        if ( cantidad >= stock ) {
+            setBlockAdd(true);
+            setBlockMinus(false);
+        }
+        
+        if ( cantidad > 0 && cantidad < stock ) {
+            setBlockAdd(false);
+            setBlockMinus(false);
+        }
+    }, [cantidad, stock])
+
+    const onMinus = () => {
+        setCantidad( cantidad - 1 );
     }
 
     const onAdd = () => {
-        if ( stock <= contador ) {
-            setBlockAdd(true);
-        } else {
-            setContador( contador + 1 )
-            setBlockMinus(false);
-        }
+        setCantidad( cantidad + 1 );
     }
 
+    const handlerAddCart = () => {
+        fnAddCart(cantidad);
+    }
     
 
     return (
-        <div className='div'>
-            <Segment className='segment' >
-                <div>
-                    <h2>Contador</h2>
-                    <h4>Stock disponible: { stock }</h4>
-                    <Image className="ui centered medium image"
-                        src='https://cdn.shopify.com/s/files/1/0426/9209/articles/e-commerce-el-presente-y-el-futuro-de-las-ventas-en-linea_960x502_crop_center.png?v=1597172403960w' 
-                        size='tiny' circular />
-                    <Button icon color='google plus' disabled={blockMinus} onClick={onMinus}>
-                        <Icon name='minus' />
-                    </Button>
-                    <Input disabled value={contador} />
-                    <Button icon color='green' disabled={blockAdd} onClick={onAdd}>
-                        <Icon name='add' />
-                    </Button>
-                </div>
-                <div className='shop'>
-                    <Button icon labelPosition='left' color='google plus'>
-                        <Icon name='shop' />  Añadir al Carrito
-                    </Button>
-                </div>
-            </Segment>
+        <div>
+            <Button icon color='google plus' disabled={blockMinus} onClick={onMinus}>
+                <Icon name='minus' />
+            </Button>
+            <Input disabled value={cantidad} />
+            <Button icon color='green' disabled={blockAdd} onClick={onAdd}>
+                <Icon name='add' />
+            </Button>
+            {
+                cantidad > 0 &&
+                    <Link to='/cart'>
+                        <Button icon labelPosition='left' color='google plus' onClick={ handlerAddCart }>
+                            <Icon name='shop' />  Añadir al Carrito
+                        </Button>
+                    </Link>
+            }
         </div>
     )
 }

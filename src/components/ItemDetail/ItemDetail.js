@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
+import { ItemCount } from '../ItemCount/ItemCount'
 
 export const ItemDetail = ({ item }) => {
+
+    const addCart = (cantidad) =>{
+        alert(`Se añadieron ${cantidad} elementos al carrito`);
+    };
+
+
     return (
         <div>
             <Card>
@@ -15,6 +22,9 @@ export const ItemDetail = ({ item }) => {
                 <Card.Description>
                     {item.price}
                 </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                    <ItemCount stock={item.stock} fnAddCart={addCart}/>
                 </Card.Content>
                 <Card.Content extra>
                     <Link to={`/category/${item.type}`}>

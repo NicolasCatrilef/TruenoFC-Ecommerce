@@ -27,7 +27,9 @@ export const NavBar = () => {
 					</Link>
 				</li>
 				<li>
-					<CardWidget className='CardWidget'/>
+					<Link to='/cart'>
+						<CardWidget className='CardWidget'/>
+					</Link>
 				</li>
 			</ul>
 		</nav>
