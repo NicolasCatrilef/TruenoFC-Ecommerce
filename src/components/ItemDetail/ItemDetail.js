@@ -1,11 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { ItemCount } from '../ItemCount/ItemCount'
 
 export const ItemDetail = ({ item }) => {
 
+    const [next, setNext] = useState(false);
+
     const addCart = (cantidad) =>{
+        setNext(true);
         alert(`Se añadieron ${cantidad} elementos al carrito`);
     };
 
@@ -24,7 +28,24 @@ export const ItemDetail = ({ item }) => {
                 </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <ItemCount stock={item.stock} fnAddCart={addCart}/>
+                    {
+                        !next ? (
+                            <ItemCount stock={item.stock} fnAddCart={addCart}/>
+                        ) : (
+                            <>
+                                <Link to={`/category/${item.type}`}>
+                                    <Button color='black' style={{ with: '5px' }}>
+                                        Seguir Comprando
+                                    </Button>
+                                </Link>
+                                <Link to={'/cart'}>
+                                    <Button color='google plus'>
+                                        Ver Carro
+                                    </Button>
+                                </Link>
+                            </>
+                        )
+                    }
                 </Card.Content>
                 <Card.Content extra>
                     <Link to={`/category/${item.type}`}>

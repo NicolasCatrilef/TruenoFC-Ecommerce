@@ -52,11 +52,9 @@ export const ItemCount = ({stock, fnAddCart}) => {
             </Button>
             {
                 cantidad > 0 &&
-                    <Link to='/cart'>
-                        <Button icon labelPosition='left' color='google plus' onClick={ handlerAddCart }>
-                            <Icon name='shop' />  Añadir al Carrito
-                        </Button>
-                    </Link>
+                    <Button icon labelPosition='left' color='google plus' onClick={ handlerAddCart }>
+                        <Icon name='shop' />  Añadir al Carrito
+                    </Button>
             }
         </div>
     )
