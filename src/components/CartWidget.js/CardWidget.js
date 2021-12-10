@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react'
 
 export const CardWidget = () => {
     return (
-        <Icon className='widget' circular inverted name='cart' />
+        <Icon className='widget' inverted size='big' name='cart' />
     )
 }
 

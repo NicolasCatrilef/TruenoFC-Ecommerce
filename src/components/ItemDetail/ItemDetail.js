@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { ItemCount } from '../ItemCount/ItemCount'
 
+import { CartContext } from '../Context/CartContext'
+
 export const ItemDetail = ({ item }) => {
 
     const [next, setNext] = useState(false);
+    const [ items, setItems, addItem ] = useContext(CartContext);
 
     const addCart = (cantidad) =>{
         setNext(true);
-        alert(`Se añadieron ${cantidad} elementos al carrito`);
+        addItem(item, cantidad);
     };
 
 

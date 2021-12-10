@@ -4,6 +4,11 @@ import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 export const Item = ({ item }) => {
+
+    const currency = (number) =>{
+        return new Intl.NumberFormat('es-CL', {style: 'currency',currency: 'clp', minimumFractionDigits: 0}).format(number);
+    };
+
     return (
         <div>
             <Card>
@@ -14,7 +19,7 @@ export const Item = ({ item }) => {
                     <span className='date'>Stock disponible: {item.stock}</span>
                 </Card.Meta>
                 <Card.Description>
-                    {item.price}
+                    {currency(item.price)}
                 </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
