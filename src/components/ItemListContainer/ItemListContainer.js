@@ -29,16 +29,8 @@ export const ItemListContainer = ({greetings}) => {
             })
     }, [category])
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         fetch('https://api.github.com/users')
-    //             .then( resp => resp.json() )
-    //             .then( json => setItems(json));
-    //     }, 2000);
-    // }, []);
-
     return (
-        <div className='container'>
+        <div className='ItemListContainer'>
             <ItemList items={items}/>
         </div>
         

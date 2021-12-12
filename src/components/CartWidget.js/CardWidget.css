@@ -10,15 +10,11 @@
 }
 
 .widget{
-    margin: 20px;
-    list-style-type: auto;
+	display:inline-block;
 }
 
-li {
-	margin: 20px;
-	list-style-type: none;
+.p{
+	display:inline-block;
+	position: relative;
+	bottom: -10px;
 }
-
-li a {
-    color: white; /* text color */
-  }

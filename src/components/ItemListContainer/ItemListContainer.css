@@ -1,24 +1,5 @@
-.container {
+.ItemListContainer {
 	display: flex;
 	justify-content: center;
-	/* background-color: white; */
+	background-color: white;
 }
-
-.container ul {
-	display: flex;
-	justify-content: space-between;
-}
-
-.widget{
-	margin: 30px;
-	list-style-type: auto;
-}
-
-li {
-	margin: 20px;
-	list-style-type: none;
-}
-
-li a {
-    color: white; /* text color */
-  }

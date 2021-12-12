@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Image } from 'semantic-ui-react';
 import { CardWidget } from '../CartWidget.js/CardWidget';
 import logo from './Trueno-FC.ico'
@@ -7,7 +7,14 @@ import './NavBar.css';
 import { Link } from 'react-router-dom';
 
 
+//Context
+import { CartContext } from '../Context/CartContext'
+
+
 export const NavBar = () => {
+
+	const [ items, setItems, removeItem, clear ] = useContext(CartContext);
+
     return (
         <nav className='container background-red'>
 			<ul>
@@ -27,9 +34,12 @@ export const NavBar = () => {
 					</Link>
 				</li>
 				<li>
-					<Link to='/cart'>
-						<CardWidget className='CardWidget'/>
-					</Link>
+					{
+						items.length > 0 &&
+							<Link to='/cart'>
+								<CardWidget className='CardWidget'/>
+							</Link>
+					}
 				</li>
 			</ul>
 		</nav>

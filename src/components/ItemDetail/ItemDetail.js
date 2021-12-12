@@ -6,6 +6,8 @@ import { ItemCount } from '../ItemCount/ItemCount'
 
 import { CartContext } from '../Context/CartContext'
 
+import './ItemDetail.css'
+
 export const ItemDetail = ({ item }) => {
 
     const [next, setNext] = useState(false);
@@ -18,7 +20,7 @@ export const ItemDetail = ({ item }) => {
 
 
     return (
-        <div>
+        <div className='card'>
             <Card>
                 <Image src={item.img} wrapped ui={true} />
                 <Card.Content>
@@ -35,7 +37,7 @@ export const ItemDetail = ({ item }) => {
                         !next ? (
                             <ItemCount stock={item.stock} fnAddCart={addCart}/>
                         ) : (
-                            <>
+                            <div className='buttons'>
                                 <Link to={`/category/${item.type}`}>
                                     <Button color='black' style={{ with: '5px' }}>
                                         Seguir Comprando
@@ -46,7 +48,7 @@ export const ItemDetail = ({ item }) => {
                                         Ver Carro
                                     </Button>
                                 </Link>
-                            </>
+                            </div>
                         )
                     }
                 </Card.Content>

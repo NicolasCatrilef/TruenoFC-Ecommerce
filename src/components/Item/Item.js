@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
+import './Item.css'
+
 export const Item = ({ item }) => {
 
     const currency = (number) =>{
@@ -10,7 +12,7 @@ export const Item = ({ item }) => {
     };
 
     return (
-        <div>
+        <div className='card'>
             <Card>
                 <Image src={item.img} wrapped ui={false} size='huge'/>
                 <Card.Content>
