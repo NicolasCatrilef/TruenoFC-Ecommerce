@@ -3,17 +3,41 @@ import { useParams } from 'react-router';
 import { getFetch } from '../../Services/getFetch';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 
+
+//FireBase
+import { db } from '../../firebase/firebaseConfig';
+import { collection, query, where, getDocs, documentId } from 'firebase/firestore';
+
+
 export const ItemDetailContainer = () => {
 
     const { id } = useParams();
-    
     const [item, setItem ] = useState({});
     
+    // useEffect(() => {
+    //     id ? getFetch.then( res => {setItem( res.find(item => item.id === parseInt(id)))})
+    //                  .catch( err => console.log(err))
+    //        : getFetch.then( res => {setItem( res )})
+    //                  .catch( err => console.log(err))
+    // }, [id])
+
     useEffect(() => {
-        id ? getFetch.then( res => {setItem( res.find(item => item.id === parseInt(id)))})
-                     .catch( err => console.log(err))
-           : getFetch.then( res => {setItem( res )})
-                     .catch( err => console.log(err))
+        let products;
+        
+        if (id) {
+            products = query(collection(db, "products"), where(documentId(), '==', id));
+        } else {
+            products = query(collection(db, "products"));
+        }
+        let docs = {};
+        const getData = async () => {
+            const querySnapshot = await getDocs(products);
+            querySnapshot.forEach((doc) => {
+                docs = {...doc.data(), id: doc.id}
+            });
+            setItem(docs);
+        };
+        getData();
     }, [id])
 
     return (
