@@ -14,13 +14,6 @@ export const ItemDetailContainer = () => {
     const { id } = useParams();
     const [item, setItem ] = useState({});
     
-    // useEffect(() => {
-    //     id ? getFetch.then( res => {setItem( res.find(item => item.id === parseInt(id)))})
-    //                  .catch( err => console.log(err))
-    //        : getFetch.then( res => {setItem( res )})
-    //                  .catch( err => console.log(err))
-    // }, [id])
-
     useEffect(() => {
         let products;
         

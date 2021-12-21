@@ -14,7 +14,7 @@ import { CartContext } from '../Context/CartContext'
 export const NavBar = () => {
 
 	const [ items, setItems, removeItem, clear ] = useContext(CartContext);
-
+	
     return (
         <nav className='container background-red'>
 			<ul>

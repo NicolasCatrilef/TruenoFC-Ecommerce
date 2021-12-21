@@ -9,8 +9,6 @@ import { CartContext } from '../Context/CartContext'
 import './ItemDetail.css'
 
 export const ItemDetail = ({ item }) => {
-    console.log("ItemDetail", item);
-    console.log("ItemDetail", item.name);
 
     const [next, setNext] = useState(false);
     const [ items, setItems, addItem ] = useContext(CartContext);

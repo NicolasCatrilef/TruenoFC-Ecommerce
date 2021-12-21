@@ -42,53 +42,61 @@ export const Cart = () => {
         <div className='ItemList'>
             {
                 items.length > 0 ? (
-                    <Table celled striped>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell colSpan='5'>
-                                    Productos en Carrito
-                                    <Button icon='eraser' floated='right' color='black' size='small' onClick={clearProducts} />
-                                </Table.HeaderCell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.HeaderCell textAlign='center'>Producto</Table.HeaderCell>
-                                <Table.HeaderCell textAlign='center'>Precio</Table.HeaderCell>
-                                <Table.HeaderCell textAlign='center'>Cantidad</Table.HeaderCell>
-                                <Table.HeaderCell textAlign='center'>SubTotal</Table.HeaderCell>
-                                <Table.HeaderCell/>
-                            </Table.Row>
-                        </Table.Header>
+                    <>
+                        <Table celled striped>
+                            <Table.Header>
+                                <Table.Row>
+                                    <Table.HeaderCell colSpan='5'>
+                                        Productos en Carrito
+                                        <Button icon='eraser' floated='right' color='black' size='small' onClick={clearProducts} />
+                                    </Table.HeaderCell>
+                                </Table.Row>
+                                <Table.Row>
+                                    <Table.HeaderCell textAlign='center'>Producto</Table.HeaderCell>
+                                    <Table.HeaderCell textAlign='center'>Precio</Table.HeaderCell>
+                                    <Table.HeaderCell textAlign='center'>Cantidad</Table.HeaderCell>
+                                    <Table.HeaderCell textAlign='center'>SubTotal</Table.HeaderCell>
+                                    <Table.HeaderCell/>
+                                </Table.Row>
+                            </Table.Header>
 
-                        <Table.Body>
-                            {
-                                items.map( item =>
-                                    <Table.Row key={item.id}>
-                                        <Table.Cell textAlign='center'>
-                                            <Header as='h4' image>
-                                                <Image src={item.img} rounded size='mini' />
-                                                <Header.Content>
-                                                    {item.name}
-                                                </Header.Content>
-                                            </Header>
-                                        </Table.Cell>
-                                        <Table.Cell textAlign='center' >{currency(item.price)}</Table.Cell>
-                                        <Table.Cell textAlign='center' >{item.quantity}</Table.Cell>
-                                        <Table.Cell textAlign='center' >{currency(item.price * item.quantity)}</Table.Cell>
-                                        <Table.Cell textAlign='center' collapsing>
-                                            <Button id={ item.id } icon='trash' color='google plus' size='small' onClick={removeProduct} />
-                                        </Table.Cell>
-                                    </Table.Row>
-                                )
-                            }
-                        </Table.Body>
+                            <Table.Body>
+                                {
+                                    items.map( item =>
+                                        <Table.Row key={item.id}>
+                                            <Table.Cell textAlign='center'>
+                                                <Header as='h4' image>
+                                                    <Image src={item.img} rounded size='mini' />
+                                                    <Header.Content>
+                                                        {item.name}
+                                                    </Header.Content>
+                                                </Header>
+                                            </Table.Cell>
+                                            <Table.Cell textAlign='center' >{currency(item.price)}</Table.Cell>
+                                            <Table.Cell textAlign='center' >{item.quantity}</Table.Cell>
+                                            <Table.Cell textAlign='center' >{currency(item.price * item.quantity)}</Table.Cell>
+                                            <Table.Cell textAlign='center' collapsing>
+                                                <Button id={ item.id } icon='trash' color='google plus' size='small' onClick={removeProduct} />
+                                            </Table.Cell>
+                                        </Table.Row>
+                                    )
+                                }
+                            </Table.Body>
 
-                        <Table.Footer>
-                            <Table.Row>
-                                <Table.HeaderCell colSpan='3' textAlign='right'>Total</Table.HeaderCell>
-                                <Table.HeaderCell colspan='2'textAlign='center'>{currency(total)}</Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Footer>
-                    </Table>
+                            <Table.Footer>
+                                <Table.Row>
+                                    <Table.HeaderCell colSpan='3' textAlign='right'>Total</Table.HeaderCell>
+                                    <Table.HeaderCell colspan='2'textAlign='center'>{currency(total)}</Table.HeaderCell>
+                                </Table.Row>
+                            </Table.Footer>
+                        </Table>
+                        <Link to="/shopping">
+                            <Button icon labelPosition='right' color='google plus'>
+                                Datos Despacho
+                                <Icon name='right arrow' />
+                            </Button>
+                        </Link>
+                    </>
                 ) : (
                     <>
                         <Message icon className='message'>

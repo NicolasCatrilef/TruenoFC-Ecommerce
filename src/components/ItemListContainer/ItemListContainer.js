@@ -18,21 +18,6 @@ export const ItemListContainer = ({greetings}) => {
     const [items, setItems] = useState([]);
     const { category } = useParams();
     
-    // useEffect(() => {
-    //     category ? 
-    //         getFetch.then((result) => {
-    //             setItems( result.filter( i => i.type === category ));
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    //     :
-    //         getFetch.then((result) => {
-    //             setItems(result)
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    // }, [category])
-
     useEffect(() => {
         let products;
         
