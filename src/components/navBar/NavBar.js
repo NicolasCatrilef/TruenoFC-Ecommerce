@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Image, Input, Menu, Segment } from 'semantic-ui-react';
+import { Image, Dropdown, Menu, } from 'semantic-ui-react';
 import { CardWidget } from '../CartWidget.js/CardWidget';
 import logo from './Trueno-FC.ico'
 
@@ -17,13 +17,13 @@ export const NavBar = () => {
 	
 	const [option, setOption] = useState('initialState');
 	
-	const handleItemClick = ({ name }) => {
+	const handleItemClick = (e, {name}) => {
 		setOption(name)
 	}
 
     return (
 		<div className='container background-red'>
-			<Menu attached='top' tabular>
+			<Menu attached='top' secondary>
 				<Menu.Menu position='left'>
 					<Link to="/">	
 						<Menu.Item>
@@ -32,14 +32,25 @@ export const NavBar = () => {
 					</ Link>
 				</Menu.Menu>
 				
-				<Link to='/category/camiseta'class="item">
-					<Menu.Item name='Camisetas' active={option === 'Camisetas'} onClick={handleItemClick} />
+				<Link to='/'class="item">
+					<Menu.Item name='Inicio' active={option === 'Home'} onClick={handleItemClick} />
 				</ Link>
-				<Link to='/category/accesorio' class="item">
+ 
+				<Dropdown item text='Categorias' active={option === 'Categorias'} onClick={handleItemClick} >
+					<Dropdown.Menu>
+						<Dropdown.Item>
+							<Link to='/category/camiseta'>Camisetas</Link>
+						</Dropdown.Item>
+						<Dropdown.Item>
+							<Link to='/category/accesorio'>Accesorios</Link>
+						</Dropdown.Item>
+					</Dropdown.Menu>
+            	</Dropdown>
+				{/* <Link to='/category/accesorio' class="item">
 					<Menu.Item name='Accesorios' active={option === 'Accesorios'} onClick={handleItemClick} />
-				</ Link>
+				</ Link> */}
 				
-				{ Number(items.length) > 0 &&
+				{/* { Number(items.length) > 0 && */}
 					<Menu.Menu position='right'>
 						<Link to='/cart' class='item'>
 								<Menu.Item>
@@ -47,7 +58,7 @@ export const NavBar = () => {
 								</Menu.Item>
 						</ Link>
 					</Menu.Menu>
-				}
+				{/* } */}
 			</Menu>
       	</div>
     )

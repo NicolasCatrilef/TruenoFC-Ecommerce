@@ -103,7 +103,7 @@ export const Cart = () => {
                             <Icon name='cart' />
                             <Message.Content>
                                 <Message.Header>Productos en Carrito</Message.Header>
-                                No tiene productos añdadidos, favor vuelva a seleccionar sus productos preferidos
+                                No tiene productos añadidos, favor seleccione sus productos favoritos
                             </Message.Content>
                         </Message>
                         <Link to={'/'}>

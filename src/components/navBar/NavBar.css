@@ -7,7 +7,25 @@
 	background-color: rgb(248, 82, 82);
 }
 
-.ui.tabular.menu .item {
+.ui.secondary.menu .item {
 	color: white !important;
 	font-weight: bold;
+}
+
+.ui.tabular.menu .active.item {
+	background-color: rgb(248, 82, 82) !important;
+}
+
+.ui.menu .ui.dropdown .menu {
+	background-color: rgb(248, 82, 82) !important;
+}
+
+a {
+	color: white !important;
+	font-weight: bold;
+}
+
+.ui.menu .dropdown.item{
+	color: white !important;
+
 }
