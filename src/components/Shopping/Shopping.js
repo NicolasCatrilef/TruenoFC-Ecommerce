@@ -70,10 +70,8 @@ export const Shopping = () => {
 		});
 		
 		setOrder(docRef);
-		setTimeout(() => {
-			setLoading(false);
-			setForm(initialState);
-		}, 1000);
+        setLoading(false);
+        setForm(initialState);
 	};
 
 

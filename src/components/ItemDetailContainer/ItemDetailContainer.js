@@ -7,6 +7,7 @@ import { ItemDetail } from '../ItemDetail/ItemDetail';
 //FireBase
 import { db } from '../../firebase/firebaseConfig';
 import { collection, query, where, getDocs, documentId } from 'firebase/firestore';
+import { InfoMessage } from '../InfoMessage/InfoMessage';
 
 
 export const ItemDetailContainer = () => {
@@ -22,6 +23,7 @@ export const ItemDetailContainer = () => {
         } else {
             products = query(collection(db, "products"));
         }
+        
         let docs = {};
         const getData = async () => {
             const querySnapshot = await getDocs(products);
@@ -35,7 +37,13 @@ export const ItemDetailContainer = () => {
 
     return (
         <div className='ItemDetailContainer'> 
-             <ItemDetail item={item}  />
+            {
+                item.id ? (
+                    <ItemDetail item={item}  />
+                ) : (
+                    <InfoMessage type='item'/>
+                )
+            }
         </div>
     )
 }
