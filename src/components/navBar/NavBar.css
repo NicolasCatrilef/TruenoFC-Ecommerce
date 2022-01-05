@@ -6,21 +6,8 @@
 .background-red{
 	background-color: rgb(248, 82, 82);
 }
-.container ul {
-	display: flex;
-	justify-content: space-between;
-}
 
-.CardWidget{
-	margin: 20px;
-	list-style-type: auto;
+.ui.tabular.menu .item {
+	color: white !important;
+	font-weight: bold;
 }
-
-li {
-	margin: 20px;
-	list-style-type: none;
-}
-
-li a {
-    color: white; /* text color */
-  }
