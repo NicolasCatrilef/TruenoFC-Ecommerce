@@ -10,6 +10,7 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import { Cart } from './components/Cart/Cart';
 import { CartProvider } from './components/Context/CartContext';
 import { Shopping } from './components/Shopping/Shopping';
+import { PageError } from './components/PageError/PageError';
 
 
 
@@ -25,6 +26,7 @@ function App() {
               <Route path='/item/:id' element={<ItemDetailContainer />} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/shopping' element={<Shopping />} />
+              <Route path='*' element={<PageError />} />
             </Routes>
         </div>
       </Router>
