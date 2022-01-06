@@ -18,7 +18,7 @@ export const InfoMessage = ({ type, order = '' }) => {
         if ( type === 'order') {
             setIcon('check circle');
             setTitle('El N° de orden es :');
-            setMsg(order.id);
+            setMsg(order);
         }
 
     }, [type])
