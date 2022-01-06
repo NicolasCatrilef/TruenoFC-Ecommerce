@@ -20,13 +20,20 @@ export const CartProvider = ({ children }) => {
         if ( items.length > 0 ) {
             let exist = items.find( i => i.id === newItem.id);
             if (exist) {
-                exist.quantity = exist.quantity + quantity;
-                setItems(...items, exist);
+                // exist.quantity = exist.quantity + quantity;
+                let products = items.map( (data) => {
+                    if (data.id === newItem.id) {
+                        data.quantity = data.quantity + quantity;
+                        return { ...data };
+                    }
+                    return { ...data };
+                })
+                setItems(products);
             } else {
-                items.push(newItem);
+                setItems(items.concat(newItem));
             }
         }else{
-            items.push(newItem);
+            setItems(items.concat(newItem));
         }
     };
 

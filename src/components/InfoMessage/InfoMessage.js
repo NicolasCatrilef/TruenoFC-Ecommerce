@@ -3,7 +3,7 @@ import { Icon, Message } from 'semantic-ui-react'
 
 import './InfoMessage.css'
 
-export const InfoMessage = ({ type }) => {
+export const InfoMessage = ({ type, order = '' }) => {
 
     const [icon, setIcon] = useState('');
     const [title, setTitle] = useState('');
@@ -14,6 +14,11 @@ export const InfoMessage = ({ type }) => {
             setIcon('box');
             setTitle('Producto No Encontrado');
             setMsg('Lamentamos informar que el producto seleccionado No existe.');
+        }
+        if ( type === 'order') {
+            setIcon('check circle');
+            setTitle('El N° de orden es :');
+            setMsg(order.id);
         }
 
     }, [type])

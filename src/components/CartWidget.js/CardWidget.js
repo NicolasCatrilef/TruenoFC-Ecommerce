@@ -11,11 +11,12 @@ import './CardWidget.css'
 export const CardWidget = () => {
 
     const [ items, setItems ] = useContext(CartContext);
+    const quantity = items.reduce((totalCart, item) => totalCart + item.quantity, 0);
 
     return (
         <>
             <Icon className='widget' inverted size='big' name='cart' />
-            <p className='p'>( {items.length > 0 ? items.length : 0} )</p>
+            <p className='p'>( {items.length > 0 ? quantity : 0} )</p>
         </>
     )
 }
